@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Urban Crosser – HTML5 Game Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#0a0a0f;--panel:#131327;--panel-2:#171733;--text:#e8eaf2;--muted:#b7bdd3;
+      --brand:#42c1e5;--accent:#7c3aed;--ok:#10b981;--warn:#f59e0b;--danger:#ef4444;
+      --border:rgba(255,255,255,.08);--shadow:0 10px 24px rgba(0,0,0,.35);--radius:14px
+    }
+    html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui;line-height:1.65}
+    body{margin:0;padding:40px 20px}
+    .container{max-width:1000px;margin:0 auto}
+    h1,h2,h3{font-family:Orbitron,Inter,sans-serif;color:var(--brand)}
+    h1{font-size:2.25rem;margin:.25rem 0 1rem}
+    h2{font-size:1.6rem;margin:2rem 0 1rem;border-bottom:2px solid var(--brand);padding-bottom:.4rem}
+    h3{font-size:1.15rem;margin:1rem 0 .6rem;color:#b0eaff}
+    p{margin:.7rem 0}
+    a{color:var(--accent)}
+    .hero{background:linear-gradient(135deg,rgba(66,193,229,.18),rgba(124,58,237,.14));
+      border:1px solid var(--border);border-radius:var(--radius);padding:22px;
+      display:grid;gap:10px;box-shadow:var(--shadow)}
+    .meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted)}
+    .badge{background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.35);
+      padding:.25rem .5rem;border-radius:999px;color:#d9c7ff}
+    .panel{background:var(--panel);border:1px solid var(--border);
+      border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .toc{display:grid;gap:10px}
+    .toc a{display:block;padding:.55rem .7rem;background:var(--panel-2);
+      border:1px solid var(--border);border-radius:10px;color:var(--text)}
+    pre{background:#111125;border:1px solid var(--border);border-radius:12px;padding:14px;overflow:auto}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px 12px;border-bottom:1px solid var(--border)}
+    th{background:var(--panel-2);color:#d7f4ff;text-align:left}
+    tr:last-child td{border-bottom:none}
+    footer{text-align:center;color:var(--muted);margin:40px 0 10px}
+  </style>
+</head>
+<body>
+<div class="container">
+
+<section class="hero">
+  <h1>Urban Crosser – HTML5 Game Documentation</h1>
+  <div class="meta">
+    <span>Author: <strong>K29 Solutions</strong></span>
+    <span>Version: <span class="badge">v1.0</span></span>
+    <span>Created: <strong>06 Oct 2025</strong></span>
+  </div>
+</section>
+
+<h2>Table of Contents</h2>
+<div class="panel toc">
+  <a href="#intro">A) Introduction</a>
+  <a href="#requirements">B) Requirements</a>
+  <a href="#install">C) Installation & Setup</a>
+  <a href="#structure">D) Folder Structure</a>
+  <a href="#how">E) How the Game Works</a>
+  <a href="#customize">F) Customization</a>
+  <a href="#controls">G) Controls</a>
+  <a href="#troubleshoot">H) Troubleshooting</a>
+  <a href="#faq">I) FAQ</a>
+  <a href="#changelog">J) Changelog</a>
+  <a href="#license">K) License & Credits</a>
+  <a href="#support">L) Support</a>
+</div>
+
+<h2 id="intro">A) Introduction</h2>
+<div class="panel">
+  <p><strong>Urban Crosser</strong> is a 3D HTML5 game built with <strong>Three.js</strong>. It challenges players to cross busy city lanes filled with traffic and obstacles while collecting points. Featuring realistic lighting, moving vehicles, animated characters, and touch/keyboard controls, Urban Crosser delivers an immersive endless runner experience directly in the browser.</p>
+</div>
+
+<h2 id="requirements">B) Requirements</h2>
+<div class="panel">
+  <ul>
+    <li>Browser: Chrome, Firefox, Edge, or Safari (latest versions)</li>
+    <li>Optional: Local web server (for smooth performance)</li>
+    <li>Basic knowledge of HTML/CSS/JavaScript for customization</li>
+  </ul>
+</div>
+
+<h2 id="install">C) Installation & Setup</h2>
+<div class="panel">
+  <ol>
+    <li>Unzip the downloaded package.</li>
+    <li>Open <code>index.html</code> in a modern web browser.</li>
+    <li>To edit or customize, open files in your code editor (VS Code, Sublime, etc.).</li>
+    <li>For deployment, upload all files to your hosting server inside the <code>public_html/</code> folder.</li>
+  </ol>
+</div>
+
+<h2 id="structure">D) Folder Structure</h2>
+<div class="panel"><pre><code>UrbanCrosser/
+├─ index.html        # Main HTML file (contains structure and embedded styles)
+├─ script.js         # Core game logic and animations (Three.js based)
+└─ assets/
+   ├─ textures/      # Optional folder for background/road textures
+   └─ sounds/        # Sound effects (if added)
+</code></pre></div>
+
+<h2 id="how">E) How the Game Works</h2>
+<div class="panel">
+  <p>Urban Crosser generates a series of random lanes containing grass, forests, and roads with moving vehicles. The player controls a character who must cross the city while avoiding obstacles.</p>
+  <ul>
+    <li><strong>Objective:</strong> Move forward across as many lanes as possible without getting hit.</li>
+    <li><strong>Environment:</strong> Dynamic city roads, forests, and vehicles with lighting and shadows.</li>
+    <li><strong>Engine:</strong> Built on Three.js for 3D rendering with optimized WebGL performance.</li>
+    <li><strong>Game Flow:</strong> Start → Play → Score → Game Over → Retry.</li>
+  </ul>
+</div>
+
+<h2 id="customize">F) Customization</h2>
+<div class="panel">
+  <h3>Main Settings (in <code>script.js</code>)</h3>
+  <pre><code>// Basic parameters
+const zoom = 2;
+const stepTime = 200;           // Time between moves
+const positionWidth = 42;       // Size of each lane grid
+const laneSpeeds = [2, 2.5, 3]; // Vehicle movement speed range
+const vehicleColors = [0x2196F3, 0xF44336, 0xFF9800, 0x9C27B0];</code></pre>
+
+  <h3>Customization Tips</h3>
+  <ul>
+    <li>Modify lane counts, vehicle speeds, and light intensity to adjust difficulty.</li>
+    <li>Change character color or geometry inside the <code>createCharacter()</code> function.</li>
+    <li>Update background gradient or skybox for different visual themes (day/night mode).</li>
+  </ul>
+</div>
+
+<h2 id="controls">G) Controls</h2>
+<div class="panel">
+  <table>
+    <tr><th>Action</th><th>Control</th><th>Description</th></tr>
+    <tr><td>Move Forward</td><td>↑ / Swipe Up</td><td>Advance one lane ahead.</td></tr>
+    <tr><td>Move Backward</td><td>↓ / Swipe Down</td><td>Go one lane back.</td></tr>
+    <tr><td>Move Left</td><td>← / Swipe Left</td><td>Shift to the left column.</td></tr>
+    <tr><td>Move Right</td><td>→ / Swipe Right</td><td>Shift to the right column.</td></tr>
+    <tr><td>Retry</td><td>Button Click</td><td>Restart the game after Game Over.</td></tr>
+  </table>
+</div>
+
+<h2 id="troubleshoot">H) Troubleshooting</h2>
+<div class="panel">
+  <ul>
+    <li><strong>Game not loading?</strong> Make sure Three.js CDN link is active in <code>index.html</code>.</li>
+    <li><strong>Lag or low FPS?</strong> Try running from a local server (like Live Server in VS Code).</li>
+    <li><strong>Controls unresponsive?</strong> Ensure your browser window is focused and active.</li>
+  </ul>
+</div>
+
+<h2 id="faq">I) FAQ</h2>
+<div class="panel">
+  <p><strong>Can I add sound effects?</strong> Yes, integrate the HTML5 <code>Audio()</code> API or import small sound files into the <code>assets/sounds</code> folder.</p>
+  <p><strong>Is it mobile-friendly?</strong> Yes, the game supports both touch (swipe) and on-screen buttons for mobile users.</p>
+  <p><strong>Can I change lighting or theme?</strong> Absolutely. Adjust the <code>DirectionalLight</code> and <code>HemisphereLight</code> properties in the script.</p>
+</div>
+
+<h2 id="changelog">J) Changelog</h2>
+<div class="panel">
+  <ul>
+    <li><strong>v1.0 (06 Oct 2025)</strong> – Initial release featuring 3D gameplay, vehicles, forests, lighting, and responsive controls.</li>
+  </ul>
+</div>
+
+<h2 id="license">K) License & Credits</h2>
+<div class="panel">
+  <ul>
+    <li>Use subject to Envato/CodeCanyon standard license.</li>
+    <li>Engine: Three.js (open-source library)</li>
+    <li>Developed by <strong>K29 Solutions</strong></li>
+  </ul>
+</div>
+
+<h2 id="support">L) Support</h2>
+<div class="panel">
+  <p>For support, please contact us through our profile page:<br>
+  <strong><a href="https://codecanyon.net/user/k29solutions/portfolio" target="_blank">https://codecanyon.net/user/k29solutions/portfolio</a></strong></p>
+</div>
+
+<footer>© 2025 <strong>K29 Solutions</strong> • Urban Crosser</footer>
+</div>
+</body>
+</html>
